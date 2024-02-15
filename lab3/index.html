@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+        display: flex; 
+        flex-direction: column; 
+        max-width: 300px; 
+        justify-content: center; 
+        align-items: center;
+        margin: auto;
+        }
+
+    </style>
+</head>
+<body style=" background-color: rgb(0, 0, 0);">
+    <form action="https://httpbin.org/post" method="post" style="min-height: 300px; min-width: 400px; margin-top: 100px;">
+        <fieldset style="  background: linear-gradient(to top, rgba(228, 1, 1, 0.608), rgba(255, 107, 2, 0.597)); color: antiquewhite; border-radius: 10px; 
+        backdrop-filter: blur 12px;">
+            <legend style="font-size:larger;">Form example</legend>
+            <div style="margin-top: 20px;">
+            <label for="Fullname">Your full name:
+                <input type="text" name="Fullname" id="Fullname" required placeholder="Fullname">
+            </label>
+        </div>
+        <div style="margin-top: 20px;">
+            <label for="Email">Your Email:
+                <input style="margin-left: 24px;" type="text" name="Email" id="Email" required placeholder="email@example.com">
+            </label>
+            <div style="margin-top: 20px;">
+                <label for="contact">Your contacts:
+                <input style="margin-left: 10px;" type="text" name="contact" id="contact" required placeholder="+7(9**)-***-**-**">
+                </label>
+            </div>
+                <div style="margin-top: 10px;">
+                    <textarea style="margin-top: 10px; min-width: 400px" name="comment" id="" cols="30" rows="10" placeholder="write your comment" 
+                    ></textarea>
+                </div>
+                <div style="display: flex; justify-content: center; gap: 20px;">
+                    <button type="submit" style="background-color: rgb(0, 0, 0); color: aliceblue; width: 75px; border-radius: 5px;">Send</button>
+                    <button type="reset" style="background-color: rgb(0, 165, 14); color: aliceblue; width: 75px; border-radius: 5px;">reset</button>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <p style="display: flex; justify-content: center;">choose how we can answer your aplication:</p>
+                    <div style="display: flex; justify-content: center; gap: 40px;">
+                        <label for=""> by email
+                            <input type="checkbox">
+                        </label>
+                        <label for=""> by call
+                            <input type="checkbox">
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+    </form>
+    <a style="display: flex; justify-content: center; margin-top: 20px;" href="index.php">Ссылка на Header`ы</a>
+
+</body>
+
+</html>
