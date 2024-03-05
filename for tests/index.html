@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET Request Example</title>
+    <style>
+        form {
+         display: flex;   
+         flex-direction: column;
+         gap: 15px;
+         justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <div class="wrapper">
+            <form action="index.php" method="GET">
+                <input type="text" name="result" id="result" disabled>
+                <div>
+                    <label for="num1">Введите первое число:</label>
+                    <input type="text" name="num1" id="num1" required>
+                    
+                    <label for="num2">Введите второе число:</label>
+                    <input type="text" name="num2" id="num2" required>
+                </div>
+            
+        
+                <button type="submit">Посчитать сумму</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
