@@ -1,33 +1,33 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
-        $experation = $_POST['expression'];
-        $result = calculateExpression($experation);
+        $expression = $_POST['expression'];
+        $result = calculateExpression($expression);
         echo $result;
     } catch (Exception $e) {
         echo 'Error';
     }
 }
 
-function calculateExpression($experation) {
+function calculateExpression($expression) {
     try {
-        $experation = str_replace(' ', '', $experation);
-        return calculateAdditionAndSubtraction($experation);
+        $expression = str_replace(' ', '', $expression);
+        return calculateAdditionAndSubtraction($expression);
     } catch (Exception $e) {
         throw new Exception('Error');
     }
 }
 
-function calculateAdditionAndSubtraction(&$experation) {
+function calculateAdditionAndSubtraction(&$expression) {
     try {
-        $result = calculateMultiplicationAndDivision($experation);
+        $result = calculateMultiplicationAndDivision($expression);
 
-        while (strlen($experation) > 0) {
-            $operation = $experation[0];
-            
+        while (strlen($expression) > 0) {
+            $operation = $expression[0];
+
             if ($operation == '+' || $operation == '-') {
-                $experation = substr($experation, 1);
-                $num2 = calculateMultiplicationAndDivision($experation);
+                $expression = substr($expression, 1);
+                $num2 = calculateMultiplicationAndDivision($expression);
 
                 if ($operation == '+') {
                     $result += $num2;
@@ -35,7 +35,7 @@ function calculateAdditionAndSubtraction(&$experation) {
                     $result -= $num2;
                 }
             } else {
-                throw new Exception('Error');
+                break;
             }
         }
 
@@ -45,16 +45,16 @@ function calculateAdditionAndSubtraction(&$experation) {
     }
 }
 
-function calculateMultiplicationAndDivision(&$experation) {
+function calculateMultiplicationAndDivision(&$expression) {
     try {
-        $result = calculateNumber($experation);
+        $result = calculateNumber($expression);
 
-        while (strlen($experation) > 0) {
-            $operation = $experation[0];
+        while (strlen($expression) > 0) {
+            $operation = $expression[0];
 
             if ($operation == '*' || $operation == '/') {
-                $experation = substr($experation, 1);
-                $num2 = calculateNumber($experation);
+                $expression = substr($expression, 1);
+                $num2 = calculateNumber($expression);
 
                 if ($operation == '*') {
                     $result *= $num2;
@@ -75,32 +75,42 @@ function calculateMultiplicationAndDivision(&$experation) {
     }
 }
 
-function calculateNumber(&$experation) {
+function calculateNumber(&$expression) {
     try {
-        $number = "";
-
-        if ($experation[0] == "(") {
-            $experation = substr($experation, 1);
-            $number = calculateAdditionAndSubtraction($experation);
-            $experation = substr($experation, 1);
-
-            if ($number === "") {
-                throw new Exception('Error');
-            }
-        } else {
-            while (strlen($experation) > 0 && (is_numeric($experation[0]) || $experation[0] == '-')) {
-                $number .= $experation[0];
-                $experation = substr($experation, 1);
-            }
-
-            if ($number === "") {
+        if ($expression[0] == '(') {
+            $expression = substr($expression, 1);
+            $result = calculateAdditionAndSubtraction($expression);
+            if ($expression[0] == ')') {
+                $expression = substr($expression, 1);
+            } else {
                 throw new Exception('Error');
             }
 
-            $number = intval($number);
+            return $result;
         }
 
-        return $number;
+        $number = "";
+        $isNegative = false;
+
+        while (strlen($expression) > 0 && ($expression[0] == '-' || is_numeric($expression[0]))) {
+            if ($expression[0] == '-') {
+                if ($number !== "") {
+                    break;
+                }
+                $isNegative = !$isNegative;
+            } else {
+                $number .= $expression[0];
+            }
+
+            $expression = substr($expression, 1);
+        }
+
+        if ($number === "") {
+            throw new Exception('Error');
+        }
+
+        $number = intval($number);
+        return ($isNegative) ? -$number : $number;
     } catch (Exception $e) {
         throw new Exception('Error');
     }
