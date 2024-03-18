@@ -1,0 +1,79 @@
+
+        body {
+            background: rgb(2, 0, 36);
+            background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(15, 157, 184, 1) 12%, rgba(9, 9, 121, 1) 47%, rgba(248, 0, 255, 1) 82%);
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            font-size: large;
+            font-weight: 600;
+        }
+
+        .wrapper {
+            background-color: rgb(83, 82, 82);
+            border: 2px solid rgb(159, 0, 0);
+            max-width: fit-content;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            margin: 0;
+            margin-top: 40px;
+            box-shadow: 0 0 8px 3px black;
+            border-radius: 20px;
+        }
+
+        .screen {
+            min-height: 75px;
+            background-color: black;
+            margin-top: 20px;
+            color: white;
+            font-size: x-large;
+        }
+
+
+        .operation {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            max-width: 330px;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .operation>button {
+            padding: 10px;
+            background-color: rgb(255, 152, 7);
+            width: 100px;
+        }
+
+        .send_reset {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .send_reset>button {
+            padding: 10px;
+            background-color: rgb(181, 7, 255);
+            width: 100px;
+
+        }
+
+        button:hover {
+            border-radius: 20px;
+            border-color: brown;
+
+        }
+
+        .trigonametry {
+            background-color: rgb(25, 29, 101) !important;
+            color: rgb(255, 0, 200) !important;
+            width: 70px !important;
+        }

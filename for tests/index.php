@@ -7,19 +7,10 @@
 </head>
 <body>
 <?php
-$filePath = __DIR__ . '/test.txt';
 
-$fileContent = file_get_contents($filePath);
 
-if ($fileContent !== false) {
-    $updatedContent = $fileContent . '!';
 
-    file_put_contents($filePath, $updatedContent);
-
-    echo 'Файл успешно обновлен.';
-} else {
-    echo 'Ошибка чтения файла.';
-}
 ?>
+
 </body>
 </html>
