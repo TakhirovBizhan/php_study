@@ -7,12 +7,12 @@ function transformExpression($expression) {
 }
 
 function interpretExpression($expression) {
-    preg_match_all('/(-?\d+\.?\d*)|([\+\-\*\/\(\)])|(sin|cos|tan)/', $expression, $matches);
+    preg_match_all('/(-?\d+\.?\d*)|([\+\-\*\/\(\)])|(sin|cos|tan|cot)/', $expression, $matches);
     $arguments = $matches[0];
 
     $interpreted = [];
     for ($i = 0; $i < count($arguments); $i++) {
-        if (in_array($arguments[$i], ['sin', 'cos', 'tan']) && is_numeric($arguments[$i + 1])) {
+        if (in_array($arguments[$i], ['sin', 'cos', 'tan', "cot"]) && is_numeric($arguments[$i + 1])) {
             $interpreted[] = ['function' => $arguments[$i], 'argument' => $arguments[$i + 1]];
             $i++;
         } else {
@@ -46,11 +46,11 @@ function transformToFormula(&$arguments, &$index) {
 }
 
 function parseExpression(&$arguments, &$index) {
-    $result = parseFactor($arguments, $index);
+    $result = outputFactor($arguments, $index);
 
     while ($index < count($arguments) && (in_array($arguments[$index], ['*', '/']))) {
         $operator = $arguments[$index++];
-        $operand = parseFactor($arguments, $index);
+        $operand = outputFactor($arguments, $index);
 
         if ($operator == '*') {
             $result *= $operand;
@@ -62,7 +62,7 @@ function parseExpression(&$arguments, &$index) {
     return $result;
 }
 
-function parseFactor(&$arguments, &$index) {
+function outputFactor(&$arguments, &$index) {
     if (is_numeric($arguments[$index]) || ($arguments[$index] == '-' && is_numeric($arguments[$index + 1]))) {
         $result = $arguments[$index++];
         if ($result == '-' && is_numeric($arguments[$index])) {

@@ -10,6 +10,8 @@ function convertToRadians($function, &$argument) {
                 return cos($argument);
             case 'tan':
                 return tan($argument);
+            case "cot":
+                return 1 / tan($argument);
             default:
                 throw new Exception('Неверная функция');
         }
