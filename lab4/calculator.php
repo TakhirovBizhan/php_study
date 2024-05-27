@@ -68,7 +68,7 @@ function outputFactor(&$arguments, &$index) {
         if ($result == '-' && is_numeric($arguments[$index])) {
             $result .= $arguments[$index++];
         }
-    } elseif (in_array($arguments[$index], ['sin', 'cos', 'tan', 'cot', 'sec', 'csc'])) {
+    } elseif (in_array($arguments[$index], ['sin', 'cos', 'tan', 'cot'])) {
         $func = $arguments[$index++];
         $arg = transformToFormula($arguments, $index);
         $result = convertToRadians($func, $arg);

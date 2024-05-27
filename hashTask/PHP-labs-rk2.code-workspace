@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "PHP-labs-rk2",
+			"path": "../../../../Users/Тахиров Бижан/Desktop/PHP-labs-rk2"
+		},
+		{
+			"name": "php_study",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "php_study"
+	}
+}
