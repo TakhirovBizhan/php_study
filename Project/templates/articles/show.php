@@ -14,7 +14,7 @@
 <?php foreach ($article->getComments() as $comment): ?>
     <div style='border: 1px solid pink; padding: 8px;' class="comment">
         <p><?= $comment->getContent(); ?></p>
-        <small>Автор: <?= $comment->getUserId(); ?> | Дата: <?= $comment->getCreatedAt(); ?></small>
+        <small>Автор: <?= $article->getAuthorId()->getNickName(); ?> | Дата: <?= $comment->getCreatedAt(); ?></small>
         <a href="<?= dirname($_SERVER['SCRIPT_NAME']); ?>/comment/edit/<?= $comment->getId(); ?>" class="btn btn-secondary btn-sm">Edit</a>
         <a href="<?= dirname($_SERVER['SCRIPT_NAME']); ?>/comment/delete/<?= $comment->getId(); ?>" class="btn btn-danger btn-sm">Delete</a>
     </div>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тахиров Бижан</title>
+</head>
+<style>
+    body {
+        background: rgb(2, 0, 36);
+        background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(15, 157, 184, 1) 12%, rgba(9, 9, 121, 1) 47%, rgba(248, 0, 255, 1) 82%);
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+    }
+
+    button {
+        font-size: large;
+        font-weight: 600;
+    }
+
+    .wrapper {
+        background-color: rgb(83, 82, 82);
+        border: 2px solid rgb(159, 0, 0);
+        max-width: fit-content;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        margin: 0;
+        margin-top: 40px;
+        box-shadow: 0 0 8px 3px black;
+        border-radius: 20px;
+    }
+
+    .screen {
+        min-height: 75px;
+        background-color: black;
+        margin-top: 20px;
+        color: white;
+        font-size: x-large;
+    }
+
+
+    .operation {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+        max-width: 400px;
+        margin-top: 30px;
+    }
+
+    .operation>button {
+        padding: 10px;
+        background-color: rgb(255, 152, 7);
+        width: 100px;
+    }
+
+    .send_reset {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .send_reset>button {
+        padding: 10px;
+        background-color: rgb(181, 7, 255);
+        width: 100px;
+
+    }
+
+    button:hover {
+        border-radius: 20px;
+        border-color: brown;
+
+    }
+</style>
+
+<body>
+    <script defer src="script.js"></script>
+    <header></header>
+    <main>
+        <section class="wrapper">
+            <input class="screen" type="text" id="output" readonly></input>
+            <div class="operation">
+                <button class="butt">1</button>
+                <button class="butt">2</button>
+                <button class="butt">3</button>
+                <button class="butt">4</button>
+                <button class="butt">5</button>
+                <button class="butt">6</button>
+                <button class="butt">7</button>
+                <button class="butt">8</button>
+                <button class="butt">9</button>
+                <button class="butt">0</button>
+                <button class="butt">+</button>
+                <button class="butt">-</button>
+                <button class="butt">*</button>
+                <button class="butt">/</button>
+                <button class="butt">(</button>
+                <button class="butt">)</button>
+                <button style="background-color: blueviolet;" id="clean">clean</button>
+                <button style="background-color: green;" id="count">count</button>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+
+</html>

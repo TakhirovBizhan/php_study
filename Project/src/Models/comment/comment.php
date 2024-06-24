@@ -14,7 +14,7 @@ class Comment extends ActiveRecordEntity {
         return $this->userId;
     }
     
-    public function getUser(){
+    public function getUser(): User {
         return User::getById($this->userId);
     }
 
